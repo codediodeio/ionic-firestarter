@@ -1,0 +1,8 @@
+{
+  "name": "firebaseStarter",
+  "app_id": "70c69565",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
