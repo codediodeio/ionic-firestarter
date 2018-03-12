@@ -23,6 +23,10 @@ Enroll in the Ionic Native course to learn how to operate this machine and obtai
 - LoginPage
 - ProfilePage
 
+
+ionic cordova plugin add cordova-plugin-facebook4 --variable APP_ID="1647541315328951" --variable APP_NAME="Ionic Firestarter"
+
+
 ## 2. Database
 
 - DbProvider
@@ -34,4 +38,6 @@ Enroll in the Ionic Native course to learn how to operate this machine and obtai
 ## 4. FcmProvider
 
 ## 5. Analytics
+
+
 

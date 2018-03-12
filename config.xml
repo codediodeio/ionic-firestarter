@@ -84,4 +84,8 @@
     <engine name="android" spec="~6.3.0" />
     <engine name="ios" spec="~4.5.4" />
     <plugin name="cordova-plugin-firebase" spec="^0.1.25" />
+    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
+        <variable name="APP_ID" value="1647541315328951" />
+        <variable name="APP_NAME" value="Ionic Firestarter" />
+    </plugin>
 </widget>

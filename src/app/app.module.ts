@@ -30,6 +30,10 @@ const firebase = {
 }
 
 import { Firebase } from '@ionic-native/firebase';
+import { Facebook } from '@ionic-native/facebook';
+
+
+import { ComponentsModule } from '../components/components.module'
 
 
 @NgModule({
@@ -47,7 +51,8 @@ import { Firebase } from '@ionic-native/firebase';
     AngularFireModule.initializeApp(firebase), 
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ComponentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -63,7 +68,8 @@ import { Firebase } from '@ionic-native/firebase';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    Firebase
+    Firebase,
+    Facebook
   ]
 })
 export class AppModule {}
