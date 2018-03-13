@@ -1,0 +1,11 @@
+<ion-card *ngFor="let post of posts | async">
+  <img [src]="post.img || 'https://goo.gl/n62NG4'"/>
+  <ion-card-content>
+   {{ post.content }}
+
+  <hr>
+  <ion-icon name="heart" isActive="false"></ion-icon>  {{ post.likeCount || 0 }}          
+   <!-- <ion-icon name="heart" isActive="false"></ion-icon> -->
+  </ion-card-content>
+
+</ion-card>

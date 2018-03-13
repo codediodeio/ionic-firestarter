@@ -34,6 +34,7 @@ import { Facebook } from '@ionic-native/facebook';
 
 
 import { ComponentsModule } from '../components/components.module'
+import { DatabaseProvider } from '../providers/database/database';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { ComponentsModule } from '../components/components.module'
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     Firebase,
-    Facebook
+    Facebook,
+    DatabaseProvider
   ]
 })
 export class AppModule {}
