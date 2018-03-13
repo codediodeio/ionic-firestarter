@@ -28,4 +28,11 @@ export class ProfilePage {
     this.navCtrl.push('ProfileEditPage')
   }
 
+  openPostFeed(user) {
+    this.navCtrl.push('UserPostsPage', {
+      userId: user.uid,
+      name: user.displayName
+    })
+  }
+
 }
