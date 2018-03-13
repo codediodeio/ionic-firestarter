@@ -5,7 +5,7 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 import * as firebase from 'firebase/app';
 
 import { Observable } from 'rxjs/Observable';
-import { switchMap, take } from 'rxjs/operators';
+import { switchMap, take, map } from 'rxjs/operators';
 
 import { Facebook } from '@ionic-native/facebook';
 
@@ -23,7 +23,6 @@ export class AuthProvider {
 
     this.user = this.afAuth.authState.pipe(
       switchMap(user => {
-        console.log(user)
         if (user) {
           return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
         } else {
@@ -83,9 +82,9 @@ export class AuthProvider {
       uid: user.uid,
       email: user.email || null,
       displayName: user.displayName || 'nameless user',
-      photoURL: user.photoURL || 'https://goo.gl/Fz9nrQ',
+      photoURL: user.photoURL || 'https://goo.gl/7kz9qG',
     };
-    return userRef.set(data);
+    return userRef.set(data, { merge: true });
   }
 
 
@@ -104,9 +103,19 @@ export class AuthProvider {
     return this.afAuth.auth.signOut();
   }
 
-  // Current user as Promise. Useful for one-off operations
+
+
+
+
+  
+
+  // Current user as boolean Promise. Useful for one-off operations and route guards
   getCurrentUser(): Promise<any> {
-    return this.user.pipe(take(1)).toPromise()
+    return this.user.pipe(
+      take(1),
+      map(user => !!user)
+    )
+    .toPromise()
   }
   
 

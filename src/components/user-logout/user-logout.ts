@@ -3,7 +3,6 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { NavController } from 'ionic-angular';
 import { LoginPage } from '../../pages/login/login';
 
-
 @Component({
   selector: 'user-logout',
   templateUrl: 'user-logout.html'

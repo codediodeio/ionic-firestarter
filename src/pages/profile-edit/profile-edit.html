@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Edit your Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ng-container *ngIf="auth.user | async as user">
+  <ion-list>
+      
+    <ion-item>
+      <ion-label floating>Display Name</ion-label>
+      <ion-input [(ngModel)]="newName" type="text"></ion-input>
+    </ion-item>
+  
+  </ion-list>
+
+  <button ion-button small (click)="updateProfile(user)">
+      Save Changes
+  </button>
+
+  </ng-container>
+
+</ion-content>
