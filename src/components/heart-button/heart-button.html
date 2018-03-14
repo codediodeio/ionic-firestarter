@@ -1,0 +1,18 @@
+
+
+<ion-icon isActive="false"
+          name="heart" 
+          *ngIf="!isHearted"
+          (tap)="db.createHeart(userId, post)">
+        
+</ion-icon>     
+
+<ion-icon name="heart"
+          *ngIf="isHearted" 
+          (tap)="db.removeHeart(userId, post)">
+        
+</ion-icon>
+
+
+{{ heartCount }}
+

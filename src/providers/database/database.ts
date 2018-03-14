@@ -22,7 +22,7 @@ export class DatabaseProvider {
 
 
   getRecentPosts() {
-    return this.afs.collection('posts', ref => 
+    return this.afs.collection<Post>('posts', ref => 
 
       ref.orderBy('createdAt', 'desc')
          .limit(10)
@@ -30,7 +30,7 @@ export class DatabaseProvider {
   }
 
   getUserPosts(userId: string) {
-    return this.afs.collection('posts', ref => 
+    return this.afs.collection<Post>('posts', ref => 
 
       ref.orderBy('createdAt', 'desc')
         .where('userId', '==', userId)
@@ -48,5 +48,25 @@ export class DatabaseProvider {
   deletePost(id: string) {
     return this.postsRef.doc(id).delete()
   }
+
+
+  //// HEARTS ////
+
+  createHeart(userId: string, post: Post) {
+    const hearts = post.hearts || {};
+    hearts[userId] = true;
+    
+    return this.afs.doc(`posts/${post.id}`).update({ hearts })
+  }
+
+  removeHeart(userId: string, post: Post) {
+    const hearts = post.hearts;
+    delete post.hearts[userId];
+
+    return this.afs.doc(`posts/${post.id}`).update({ hearts })
+  }
+
+
+
 
 }

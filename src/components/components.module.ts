@@ -7,20 +7,29 @@ import { FacebookLoginComponent } from './facebook-login/facebook-login';
 import { AnonymousLoginComponent } from './anonymous-login/anonymous-login';
 import { UserLogoutComponent } from './user-logout/user-logout';
 import { PostFeedComponent } from './post-feed/post-feed';
+import { HeartButtonComponent } from './heart-button/heart-button';
+
+
 @NgModule({
-	declarations: [FacebookLoginComponent,
-    FacebookLoginComponent,
-    AnonymousLoginComponent,
-    UserLogoutComponent,
-    PostFeedComponent],
+	declarations: [
+        FacebookLoginComponent,
+        FacebookLoginComponent,
+        AnonymousLoginComponent,
+        UserLogoutComponent,
+        PostFeedComponent,
+    HeartButtonComponent
+    ],
 	imports: [
 		CommonModule,
 		IonicModule
 	],
-	exports: [FacebookLoginComponent,
-    FacebookLoginComponent,
-    AnonymousLoginComponent,
-    UserLogoutComponent,
-    PostFeedComponent]
+    exports: [
+        FacebookLoginComponent,
+        FacebookLoginComponent,
+        AnonymousLoginComponent,
+        UserLogoutComponent,
+        PostFeedComponent,
+    HeartButtonComponent,
+    ]
 })
 export class ComponentsModule {}
