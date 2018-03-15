@@ -11,7 +11,7 @@
     <ng-container *ngIf="auth.user | async as currentUser">
 
         <ion-list>
-            <ion-item *ngFor="let user of users | async">
+            <ion-item *ngFor="let user of users | async; trackBy: trackByFn">
               <ion-avatar item-start>
                 <img [src]="user.photoURL">
               </ion-avatar>

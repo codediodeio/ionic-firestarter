@@ -24,6 +24,10 @@ export class UsersPage {
     this.users = this.db.getUsers();
   }
 
+  trackByFn(index, user) {
+    return user.uid; // or item.id
+  }
+
 
 
 }

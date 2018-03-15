@@ -16,7 +16,7 @@ export class HeartButtonComponent {
 
 
   get heartCount(): number {
-    return Object.keys(this.post.hearts).length
+    return this.post.hearts ? Object.keys(this.post.hearts).length : 0
   }
 
   get isHearted(): boolean {
