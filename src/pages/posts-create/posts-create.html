@@ -15,7 +15,7 @@
     <ion-input floating type="text" placeholder="Image URL" [(ngModel)]="post.img"></ion-input>
     
           
-    <image-upload></image-upload>
+    <image-upload (uploadFinished)="updateURL($event)"></image-upload>
 
     <hr>
 

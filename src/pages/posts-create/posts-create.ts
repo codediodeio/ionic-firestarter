@@ -10,7 +10,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 })
 export class PostsCreatePage {
 
-  post = {};
+  post: Partial<Post> = {};
 
   constructor(
     public navCtrl: NavController, 
@@ -27,6 +27,10 @@ export class PostsCreatePage {
     await this.db.createPost(user.uid, this.post as Post)
     this.post = {}
     await this.navCtrl.setRoot('HomePage')
+  }
+
+  updateURL(e) {
+    this.post.img = e;
   }
 
 }

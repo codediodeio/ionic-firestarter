@@ -9,7 +9,7 @@ import { UserLogoutComponent } from './user-logout/user-logout';
 import { PostFeedComponent } from './post-feed/post-feed';
 import { HeartButtonComponent } from './heart-button/heart-button';
 import { UserRelationshipComponent } from './user-relationship/user-relationship';
-import { ImageUploadComponent } from './image-upload/image-upload';
+import { ImageUploadComponent, UploadModal } from './image-upload/image-upload';
 
 
 @NgModule({
@@ -21,7 +21,8 @@ import { ImageUploadComponent } from './image-upload/image-upload';
         PostFeedComponent,
     HeartButtonComponent,
     UserRelationshipComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    UploadModal
     ],
 	imports: [
 		CommonModule,
@@ -36,6 +37,10 @@ import { ImageUploadComponent } from './image-upload/image-upload';
     HeartButtonComponent,
     UserRelationshipComponent,
     ImageUploadComponent,
+    UploadModal
+    ],
+    entryComponents:[
+        UploadModal
     ]
 })
 export class ComponentsModule {}

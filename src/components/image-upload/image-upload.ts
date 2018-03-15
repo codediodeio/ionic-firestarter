@@ -1,7 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
-import { ModalController, NavParams } from 'ionic-angular';
+import { ModalController, NavParams, ViewController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { filter, tap } from 'rxjs/operators'
 
 @Component({
   selector: 'image-upload',
@@ -11,7 +12,7 @@ export class ImageUploadComponent {
 
   @Input() userId;
 
-  @Output() downloadURL: string;
+  @Output() uploadFinished = new EventEmitter();
 
   task: AngularFireUploadTask;
   image: string;
@@ -29,12 +30,28 @@ export class ImageUploadComponent {
     // The main task
     this.image = 'data:image/jpg;base64,' + file;
     this.task = this.storage.ref(path).putString(this.image, 'data_url'); 
+    
+    // Define and present the modal component
+    let uploadModal = this.modalCtrl.create(UploadModal, { task: this.task });
+    uploadModal.present();
+
+    // Listen to the progress, when 100% dismiss the modal 
+    this.task.percentageChanges().pipe(
+      filter(val => val === 100),
+      tap(complete => {
+        uploadModal.dismiss()
+      })
+    )
+    .subscribe()
+
+    // Listen for the Download URL
+    this.task.downloadURL().pipe(
+      tap(url => this.uploadFinished.emit(url) )
+    )
+    .subscribe()
+    
   }
 
-  showModal() {
-    let uploadModal = this.modalCtrl.create(Upload, { task: this.task });
-    uploadModal.present();
-  }
 
   async captureAndUpload() {
     const options: CameraOptions = {
@@ -42,7 +59,7 @@ export class ImageUploadComponent {
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      sourceType: this.camera.PictureSourceType.CAMERA
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     }
 
     const base64 = await this.camera.getPicture(options)
@@ -54,22 +71,33 @@ export class ImageUploadComponent {
 
 @Component({
   template: `
-    <p>Please wait... Upload is 
+  <ion-content padding text-center>
+    <h3>Uploading to Firebase...</h3>
+    <p>Upload is 
     
       <ion-badge item-end>{{ progress | async }}%</ion-badge> complete
-    
+      
     </p>
-    
+
+    <button ion-button color="danger" (tap)="cancel()">Cancel</button>
+    </ion-content>
   `
 })
-class Upload {
+export class UploadModal {
 
+  task
   progress;
 
-  constructor(params: NavParams) {
-    console.log(JSON.stringify( params.get('uploadTask') ))
+  constructor(params: NavParams, public viewCtrl: ViewController) {
+    console.log(params.get('task') )
 
-    this.progress = params.get('uploadTask').percentChanges();
+    this.task = params.get('task');
+    this.progress = this.task.percentageChanges();
+  }
+
+  cancel() {
+    this.task.cancel();
+    this.viewCtrl.dismiss();
   }
 
 }
