@@ -31,4 +31,8 @@ export class PostFeedComponent implements OnInit {
     // this.posts.subscribe(console.log)
   }
 
+  trackByFn(index, post) {
+    return post.id; // or item.id
+  }
+
 }

@@ -55,11 +55,11 @@ export class ImageUploadComponent {
 
   async captureAndUpload() {
     const options: CameraOptions = {
-      quality: 100,
+      quality: 33,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+      sourceType: this.camera.PictureSourceType.CAMERA
     }
 
     const base64 = await this.camera.getPicture(options)
