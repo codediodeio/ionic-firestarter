@@ -5,7 +5,7 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 import * as firebase from 'firebase/app';
 
 import { Observable } from 'rxjs/Observable';
-import { switchMap, take, map } from 'rxjs/operators';
+import { switchMap, first, map } from 'rxjs/operators';
 
 import { Facebook } from '@ionic-native/facebook';
 
@@ -103,19 +103,15 @@ export class AuthProvider {
     return this.afAuth.auth.signOut();
   }
 
+  // Current user as a Promise. Useful for one-off operations. 
+  async getCurrentUser(): Promise<any> {
+    return this.user.pipe(first()).toPromise()
+  }
 
-
-
-
-  
-
-  // Current user as boolean Promise. Useful for one-off operations and route guards
-  getCurrentUser(): Promise<any> {
-    return this.user.pipe(
-      take(1),
-      map(user => !!user)
-    )
-    .toPromise()
+  // Current user as boolean Promise. Used in router guards 
+  async isLoggedIn(): Promise<boolean> {
+    const user = await this.getCurrentUser();
+    return !!user
   }
   
 

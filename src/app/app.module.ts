@@ -35,6 +35,7 @@ import { Camera } from '@ionic-native/camera';
 
 import { ComponentsModule } from '../components/components.module'
 import { DatabaseProvider } from '../providers/database/database';
+import { FcmProvider } from '../providers/fcm/fcm';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { DatabaseProvider } from '../providers/database/database';
     Firebase,
     Facebook,
     DatabaseProvider,
-    Camera
+    Camera,
+    FcmProvider
   ]
 })
 export class AppModule {}

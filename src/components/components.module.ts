@@ -10,37 +10,45 @@ import { PostFeedComponent } from './post-feed/post-feed';
 import { HeartButtonComponent } from './heart-button/heart-button';
 import { UserRelationshipComponent } from './user-relationship/user-relationship';
 import { ImageUploadComponent, UploadModal } from './image-upload/image-upload';
+import { FcmHandlerComponent } from './fcm-handler/fcm-handler';
+import { FcmTopicComponent } from './fcm-topic/fcm-topic';
 
 
 @NgModule({
-	declarations: [
+    declarations: [
         FacebookLoginComponent,
         FacebookLoginComponent,
         AnonymousLoginComponent,
         UserLogoutComponent,
         PostFeedComponent,
-    HeartButtonComponent,
-    UserRelationshipComponent,
-    ImageUploadComponent,
-    UploadModal
+        HeartButtonComponent,
+        UserRelationshipComponent,
+        ImageUploadComponent,
+        UploadModal,
+    FcmHandlerComponent,
+    FcmTopicComponent,
+        
     ],
-	imports: [
-		CommonModule,
-		IonicModule
-	],
+    imports: [
+        CommonModule,
+        IonicModule
+    ],
     exports: [
         FacebookLoginComponent,
         FacebookLoginComponent,
         AnonymousLoginComponent,
         UserLogoutComponent,
         PostFeedComponent,
-    HeartButtonComponent,
-    UserRelationshipComponent,
-    ImageUploadComponent,
-    UploadModal
+        HeartButtonComponent,
+        UserRelationshipComponent,
+        ImageUploadComponent,
+        UploadModal,
+    FcmHandlerComponent,
+    FcmTopicComponent,
+        
     ],
-    entryComponents:[
+    entryComponents: [
         UploadModal
     ]
 })
-export class ComponentsModule {}
+export class ComponentsModule { }

@@ -16,7 +16,7 @@ export class ProfilePage {
   ) {}
 
   ionViewCanEnter() {
-    return this.auth.getCurrentUser();
+    return this.auth.isLoggedIn();
   }
 
 

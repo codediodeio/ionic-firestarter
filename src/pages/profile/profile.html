@@ -41,9 +41,12 @@
       <user-logout></user-logout>
 
       <button (tap)="openPostFeed(user)" ion-button>Your Posts</button>
+
+      <hr>
     
+      <h4>Get Notifications about Unicorns</h4>
 
-
+      <fcm-topic [user]="user" topic="unicorns"></fcm-topic>
 
   </ng-container>
 </ion-content>

@@ -71,11 +71,19 @@ export class ImageUploadComponent {
 
 @Component({
   template: `
+
+  <ion-header>
+  
+    <ion-navbar>
+      <ion-title>Uploading to Firebase...</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
   <ion-content padding text-center>
-    <h3>Uploading to Firebase...</h3>
     <p>Upload is 
     
-      <ion-badge item-end>{{ progress | async }}%</ion-badge> complete
+      <ion-badge item-end>{{ progress | async | number }}%</ion-badge> complete
       
     </p>
 
@@ -89,7 +97,6 @@ export class UploadModal {
   progress;
 
   constructor(params: NavParams, public viewCtrl: ViewController) {
-    console.log(params.get('task') )
 
     this.task = params.get('task');
     this.progress = this.task.percentageChanges();
