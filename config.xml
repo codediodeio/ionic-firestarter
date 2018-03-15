@@ -88,4 +88,6 @@
         <variable name="APP_ID" value="1647541315328951" />
         <variable name="APP_NAME" value="Ionic Firestarter" />
     </plugin>
+    <plugin name="cordova-plugin-camera" spec="^4.0.2" />
+    <allow-navigation href="http://192.168.0.20:8101" />
 </widget>

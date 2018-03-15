@@ -20,6 +20,7 @@
     "@angular/http": "5.0.3",
     "@angular/platform-browser": "5.0.3",
     "@angular/platform-browser-dynamic": "5.0.3",
+    "@ionic-native/camera": "^4.5.3",
     "@ionic-native/core": "4.4.0",
     "@ionic-native/facebook": "^4.5.3",
     "@ionic-native/firebase": "^4.5.3",
@@ -30,6 +31,7 @@
     "angularfire2": "^5.0.0-rc.6",
     "cordova-android": "6.3.0",
     "cordova-ios": "4.5.4",
+    "cordova-plugin-camera": "^4.0.2",
     "cordova-plugin-device": "^2.0.1",
     "cordova-plugin-facebook4": "^1.9.1",
     "cordova-plugin-firebase": "^0.1.25",
@@ -60,7 +62,8 @@
       "cordova-plugin-facebook4": {
         "APP_ID": "1647541315328951",
         "APP_NAME": "Ionic Firestarter"
-      }
+      },
+      "cordova-plugin-camera": {}
     },
     "platforms": [
       "android",

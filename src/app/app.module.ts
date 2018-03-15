@@ -31,7 +31,7 @@ const firebase = {
 
 import { Firebase } from '@ionic-native/firebase';
 import { Facebook } from '@ionic-native/facebook';
-
+import { Camera } from '@ionic-native/camera';
 
 import { ComponentsModule } from '../components/components.module'
 import { DatabaseProvider } from '../providers/database/database';
@@ -65,7 +65,8 @@ import { DatabaseProvider } from '../providers/database/database';
     AuthProvider,
     Firebase,
     Facebook,
-    DatabaseProvider
+    DatabaseProvider,
+    Camera
   ]
 })
 export class AppModule {}
