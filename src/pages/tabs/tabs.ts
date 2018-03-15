@@ -9,7 +9,7 @@ export class TabsPage {
 
   tab1Root = 'HomePage';
   tab2Root = 'PostsCreatePage';
-  tab3Root = 'ProfilePage';
+  tab3Root = 'UsersPage';
   tab4Root = 'ProfilePage';
 
   constructor() {

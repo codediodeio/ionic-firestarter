@@ -1,0 +1,25 @@
+
+<ng-container *ngIf="isFollowing | async; then unfollow else follow">
+  <!-- button appears here -->
+</ng-container>
+
+<ng-template #unfollow>
+  <button ion-button round 
+          (tap)="db.unfollow(currentUserId, followId)">
+
+    Unfollow
+  </button>
+</ng-template>
+
+
+<ng-template #follow>
+  <button ion-button round outline
+          (tap)="db.follow(currentUserId, followId)"
+          [disabled]="isOwner">
+
+      Follow
+  </button>
+</ng-template>
+
+
+

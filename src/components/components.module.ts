@@ -8,6 +8,7 @@ import { AnonymousLoginComponent } from './anonymous-login/anonymous-login';
 import { UserLogoutComponent } from './user-logout/user-logout';
 import { PostFeedComponent } from './post-feed/post-feed';
 import { HeartButtonComponent } from './heart-button/heart-button';
+import { UserRelationshipComponent } from './user-relationship/user-relationship';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HeartButtonComponent } from './heart-button/heart-button';
         AnonymousLoginComponent,
         UserLogoutComponent,
         PostFeedComponent,
-    HeartButtonComponent
+    HeartButtonComponent,
+    UserRelationshipComponent
     ],
 	imports: [
 		CommonModule,
@@ -30,6 +32,7 @@ import { HeartButtonComponent } from './heart-button/heart-button';
         UserLogoutComponent,
         PostFeedComponent,
     HeartButtonComponent,
+    UserRelationshipComponent,
     ]
 })
 export class ComponentsModule {}

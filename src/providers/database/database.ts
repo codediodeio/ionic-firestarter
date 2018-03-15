@@ -37,7 +37,7 @@ export class DatabaseProvider {
         .limit(10)
            
     )
-  }e
+  }
 
   createPost(userId: string, data: Post) {
     const createdAt = firebase.firestore.FieldValue.serverTimestamp();
@@ -67,6 +67,41 @@ export class DatabaseProvider {
   }
 
 
+  //// RELATIONSHIPS ////
+
+  getUsers() {
+    return this.afs.collection('users', ref => ref.limit(10)).valueChanges();
+  }
+
+  follow(followerId: string, followedId: string) {
+    const docId = this.concatIds(followerId, followedId);
+    const createdAt = firebase.firestore.FieldValue.serverTimestamp();
+
+    const data = { 
+      followerId, 
+      followedId,
+      createdAt 
+    };
+
+    return this.afs.collection('relationships').doc(docId).set(data)
+  }
+
+  unfollow(followerId: string, followedId: string) {
+    const docId = this.concatIds(followerId, followedId);
+
+    return this.afs.collection('relationships').doc(docId).delete()
+  }
+
+  isFollowing(followerId: string, followedId: string) {
+    const docId = this.concatIds(followerId, followedId);
+
+    return this.afs.collection('relationships').doc(docId).valueChanges()
+  }
+  
+  // Helper to format the docId for relationships
+  private concatIds(a: string, b: string) {
+    return `${a}_${b}`
+  }
 
 
 }
