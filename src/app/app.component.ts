@@ -7,6 +7,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 
 import { AuthProvider } from '../providers/auth/auth';
+import { AnalyticsProvider } from '../providers/analytics/analytics';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +19,8 @@ export class MyApp {
     platform: Platform, 
     statusBar: StatusBar, 
     splashScreen: SplashScreen,
-    auth: AuthProvider
+    auth: AuthProvider,
+    analytics: AnalyticsProvider
   ) {
 
     platform.ready().then(() => {
