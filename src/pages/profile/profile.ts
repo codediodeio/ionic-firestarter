@@ -10,6 +10,8 @@ import { AnalyticsProvider } from '../../providers/analytics/analytics';
 })
 export class ProfilePage {
 
+  bannerText: Promise<any>;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -24,7 +26,6 @@ export class ProfilePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
-    this.analytics.logPageView('ProfilePage')
   }
 
   openEditPage() {

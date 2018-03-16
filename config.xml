@@ -3,7 +3,7 @@
     <name>Ionic Firestarter</name>
     <description>Ionic Firebase Starter App</description>
     <author email="hello@angularfirebase.com" href="https://angularfirebase.com">Jeff Delaney</author>
-    <content original-src="index.html" src="http://192.168.0.14:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -82,7 +82,6 @@
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <plugin name="cordova-plugin-firebase" spec="^0.1.25" />
     <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
         <variable name="APP_ID" value="1647541315328951" />
         <variable name="APP_NAME" value="Ionic Firestarter" />
@@ -95,4 +94,6 @@
     <allow-navigation href="http://192.168.0.14:8100" />
     <engine name="android" spec="6.3.0" />
     <engine name="ios" spec="4.5.4" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
+    <plugin name="cordova-plugin-firebase" spec="^0.1.25" />
 </widget>

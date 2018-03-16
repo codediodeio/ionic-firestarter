@@ -8,6 +8,7 @@
 
 
 <ion-content padding text-center>
+
   <ng-container *ngIf="auth.user | async as user">
 
     <img [src]="user.photoURL">
