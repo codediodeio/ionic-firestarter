@@ -1,15 +1,19 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
-import { ModalController, NavParams, ViewController } from 'ionic-angular';
-import { Camera, CameraOptions } from '@ionic-native/camera';
-import { filter, tap } from 'rxjs/operators'
+import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { filter, tap } from "rxjs/operators";
+
+import { ModalController, NavParams, ViewController } from "ionic-angular";
+import { Camera, CameraOptions } from "@ionic-native/camera";
+
+import {
+  AngularFireStorage,
+  AngularFireUploadTask
+} from "angularfire2/storage";
 
 @Component({
-  selector: 'image-upload',
-  templateUrl: 'image-upload.html'
+  selector: "image-upload",
+  templateUrl: "image-upload.html"
 })
 export class ImageUploadComponent {
-
   @Input() userId;
 
   @Output() uploadFinished = new EventEmitter();
@@ -21,37 +25,36 @@ export class ImageUploadComponent {
     private storage: AngularFireStorage,
     private modalCtrl: ModalController,
     private camera: Camera
-  ) { }
+  ) {}
 
   startUpload(file: string) {
-
     const path = `${this.userId}/${new Date().getTime()}`;
 
     // The main task
-    this.image = 'data:image/jpg;base64,' + file;
-    this.task = this.storage.ref(path).putString(this.image, 'data_url'); 
-    
+    this.image = "data:image/jpg;base64," + file;
+    this.task = this.storage.ref(path).putString(this.image, "data_url");
+
     // Define and present the modal component
     let uploadModal = this.modalCtrl.create(UploadModal, { task: this.task });
     uploadModal.present();
 
-    // Listen to the progress, when 100% dismiss the modal 
-    this.task.percentageChanges().pipe(
-      filter(val => val === 100),
-      tap(complete => {
-        uploadModal.dismiss()
-      })
-    )
-    .subscribe()
+    // Listen to the progress, when 100% dismiss the modal
+    this.task
+      .percentageChanges()
+      .pipe(
+        filter(val => val === 100),
+        tap(complete => {
+          uploadModal.dismiss();
+        })
+      )
+      .subscribe();
 
     // Listen for the Download URL
-    this.task.downloadURL().pipe(
-      tap(url => this.uploadFinished.emit(url) )
-    )
-    .subscribe()
-    
+    this.task
+      .downloadURL()
+      .pipe(tap(url => this.uploadFinished.emit(url)))
+      .subscribe();
   }
-
 
   async captureAndUpload() {
     const options: CameraOptions = {
@@ -60,13 +63,12 @@ export class ImageUploadComponent {
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
       sourceType: this.camera.PictureSourceType.CAMERA
-    }
+    };
 
-    const base64 = await this.camera.getPicture(options)
+    const base64 = await this.camera.getPicture(options);
 
     this.startUpload(base64);
   }
-
 }
 
 @Component({
@@ -92,13 +94,11 @@ export class ImageUploadComponent {
   `
 })
 export class UploadModal {
-
-  task
+  task;
   progress;
 
   constructor(params: NavParams, public viewCtrl: ViewController) {
-
-    this.task = params.get('task');
+    this.task = params.get("task");
     this.progress = this.task.percentageChanges();
   }
 
@@ -106,5 +106,4 @@ export class UploadModal {
     this.task.cancel();
     this.viewCtrl.dismiss();
   }
-
 }

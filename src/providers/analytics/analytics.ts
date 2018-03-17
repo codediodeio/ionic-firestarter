@@ -36,26 +36,5 @@ export class AnalyticsProvider {
 
   //// REMOTE CONFIG ////
 
-  // async initRemoteConfig() {
-  //     console.log('start')
-  //     var defaults = {
-  //       profile_banner: 'Hello'
-  //     }
 
-  //     const def = await this.firebaseNative.setDefaults(defaults, '')
-  //     const config = await this.firebaseNative.fetch(0);
-  //     console.log('config', JSON.stringify(config))
-  //     const active = await this.firebaseNative.activateFetched();
-  //     console.log('active', JSON.stringify(active))
-  //     const val = await this.getValue('profile_banner')
-  //     console.log(val, JSON.stringify(val))
-
-  //     return val
-  // }
-
-  // getValue(key: string, namespace?: string) {
-  //   if (this.platform.is('cordova')) {
-  //     return this.firebaseNative.getValue(key, namespace);
-  //   }
-  // }
 }
