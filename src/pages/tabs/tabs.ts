@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { AuthProvider } from '../../providers/auth/auth';
 import { ProfilePage } from '../profile/profile';
 
 @Component({
@@ -12,7 +12,11 @@ export class TabsPage {
   tab3Root = 'UsersPage';
   tab4Root = 'ProfilePage';
 
-  constructor() {
+  constructor(public auth: AuthProvider) {
 
+  }
+
+  ionViewCanEnter() {
+    return this.auth.isLoggedIn();
   }
 }

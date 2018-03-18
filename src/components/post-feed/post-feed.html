@@ -2,7 +2,7 @@
 
 
   <ion-card *ngFor="let post of posts | async; trackBy: trackByFn">
-    <img [src]="post.img || 'https://goo.gl/n62NG4'"/>
+    <img [src]="post.img || 'https://goo.gl/n62NG4'" onError="this.src='https://goo.gl/LJagAi'">
     <ion-card-content>
       {{ post.content }}
 

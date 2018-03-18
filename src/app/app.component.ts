@@ -8,6 +8,7 @@ import { LoginPage } from '../pages/login/login';
 
 import { AuthProvider } from '../providers/auth/auth';
 import { AnalyticsProvider } from '../providers/analytics/analytics';
+import { RemoteConfigProvider } from '../providers/remote-config/remote-config';
 
 @Component({
   templateUrl: 'app.html'
@@ -20,7 +21,8 @@ export class MyApp {
     statusBar: StatusBar, 
     splashScreen: SplashScreen,
     auth: AuthProvider,
-    analytics: AnalyticsProvider
+    analytics: AnalyticsProvider,
+    remoteConfig: RemoteConfigProvider
   ) {
 
     platform.ready().then(() => {
@@ -36,6 +38,8 @@ export class MyApp {
 
           statusBar.styleDefault();
           splashScreen.hide();
+
+          remoteConfig.initialize()
 
       })
 

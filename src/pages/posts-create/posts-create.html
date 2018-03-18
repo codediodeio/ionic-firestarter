@@ -9,16 +9,21 @@
 
 <ion-content padding text-center>
   <ng-container *ngIf="auth.user | async as user">
-    <img [src]="post.img || 'http://via.placeholder.com/350x150'">
+    <img [hidden]="!post.img" [src]="post.img">
+
+    <p>Upload an image from your device and add some content to the post</p>
 
     <ion-input floating type="text" placeholder="Post Content" [(ngModel)]="post.content"></ion-input>
-    <ion-input floating type="text" placeholder="Image URL" [(ngModel)]="post.img"></ion-input>
+    
+    <hr>
+    
+    <ion-input floating type="text" placeholder="Paste Img URL or select from device" [(ngModel)]="post.img"></ion-input>
     
           
     <image-upload [userId]="user.uid" (uploadFinished)="updateURL($event)"></image-upload>
 
     <hr>
 
-    <button ion-button full color="secondary" (tap)="create(user)">Save Post</button>
+    <button [disabled]="!post.img || !post.content" ion-button full color="secondary" (tap)="create(user)">Save Post</button>
   </ng-container>
 </ion-content>

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
-import { AnalyticsProvider } from '../../providers/analytics/analytics';
+import { RemoteConfigProvider } from '../../providers/remote-config/remote-config';
+
 
 @IonicPage()
 @Component({
@@ -16,7 +17,7 @@ export class ProfilePage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public auth: AuthProvider,
-    public analytics: AnalyticsProvider 
+    public remoteConfig: RemoteConfigProvider 
   ) {}
 
   ionViewCanEnter() {
@@ -26,6 +27,8 @@ export class ProfilePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+    // this.remoteConfig.initialize()
+    this.bannerText = this.remoteConfig.getValue('profile_banner')
   }
 
   openEditPage() {

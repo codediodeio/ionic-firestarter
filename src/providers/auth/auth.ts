@@ -12,6 +12,8 @@ import { switchMap, first, map } from "rxjs/operators";
 
 import { Facebook } from "@ionic-native/facebook";
 
+import * as Chance from 'chance';
+
 @Injectable()
 export class AuthProvider {
   user: Observable<any>;
@@ -80,7 +82,7 @@ export class AuthProvider {
     const data = {
       uid: user.uid,
       email: user.email || null,
-      displayName: user.displayName || "nameless user",
+      displayName: user.displayName || new Chance().name({ prefix: true }),
       photoURL: user.photoURL || "https://goo.gl/7kz9qG"
     };
     return userRef.set(data, { merge: true });

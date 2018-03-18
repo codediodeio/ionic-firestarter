@@ -29,11 +29,13 @@ import { firebaseConfig } from '../env';
 import { Firebase } from '@ionic-native/firebase';
 import { Facebook } from '@ionic-native/facebook';
 import { Camera } from '@ionic-native/camera';
+import { AdMobFree } from '@ionic-native/admob-free';
 
 import { ComponentsModule } from '../components/components.module'
 import { DatabaseProvider } from '../providers/database/database';
 import { FcmProvider } from '../providers/fcm/fcm';
 import { AnalyticsProvider } from '../providers/analytics/analytics';
+import { RemoteConfigProvider } from '../providers/remote-config/remote-config';
 
 
 @NgModule({
@@ -66,8 +68,10 @@ import { AnalyticsProvider } from '../providers/analytics/analytics';
     Facebook,
     DatabaseProvider,
     Camera,
+    AdMobFree,
     FcmProvider,
-    AnalyticsProvider
+    AnalyticsProvider,
+    RemoteConfigProvider
   ]
 })
 export class AppModule {}

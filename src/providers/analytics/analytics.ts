@@ -36,5 +36,26 @@ export class AnalyticsProvider {
 
   //// REMOTE CONFIG ////
 
+  // getRc(){
+  //   (<any>window).FirebasePlugin.fetch(600, result => {
+  //     // activate the fetched remote config
+  //     console.log(JSON.stringify(result)); //Always "OK"
+  //     (<any>window).FirebasePlugin.activateFetched(
+  //       // Android seems to return error always, so we want to cath both
+  //       result => { 
+  //         console.log(JSON.stringify(result)); //either true or false
+  //        (<any>window).FirebasePlugin.getValue("value", result => {  
+  //        console.log(result)  
+  //         }, reason => {
+  //        console.warn(`Error  ${reason}`);
+  //        });
+  //       }, reason => { 
+  //         console.warn(reason); 
+  //       }
+  //     )
+  //   });
+  // }
+
+
 
 }

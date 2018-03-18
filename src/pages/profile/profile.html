@@ -8,6 +8,9 @@
 
 
 <ion-content padding text-center>
+  <ion-badge color="light">{{ bannerText | async }}</ion-badge> <br>
+   Value from via Remote Config
+  <hr>
 
   <ng-container *ngIf="auth.user | async as user">
 
