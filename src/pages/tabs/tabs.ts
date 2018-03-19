@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AuthProvider } from '../../providers/auth/auth';
-import { ProfilePage } from '../profile/profile';
 
 @Component({
   templateUrl: 'tabs.html'

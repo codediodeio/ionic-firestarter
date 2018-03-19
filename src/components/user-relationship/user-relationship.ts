@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AuthProvider } from '../../providers/auth/auth';
+import { Component, Input } from '@angular/core';
 import { DatabaseProvider } from '../../providers/database/database';
 
 @Component({
@@ -14,11 +13,7 @@ export class UserRelationshipComponent {
   isOwner: boolean;
   isFollowing: any;
 
-  constructor(public db: DatabaseProvider) { 
-    // this.isOwner = this.currentUserId === this.followId;
-
-    // this.isFollowing = db.isFollowing(this.currentUserId, this.followId);
-  }
+  constructor(public db: DatabaseProvider) { }
 
   ngOnInit() {
     this.isOwner = this.currentUserId === this.followId;

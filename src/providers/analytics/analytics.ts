@@ -6,10 +6,10 @@ import { AuthProvider } from '../auth/auth';
 @Injectable()
 export class AnalyticsProvider {
   constructor(
-    private app: App,
+    app: App,
+    auth: AuthProvider,
     private platform: Platform,
     private firebaseNative: Firebase,
-    private auth: AuthProvider
   ) {
 
     if (platform.is('cordova')) {

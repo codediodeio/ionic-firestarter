@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { Firebase } from '@ionic-native/firebase';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class RemoteConfigProvider {
@@ -37,7 +36,7 @@ export class RemoteConfigProvider {
             console.log('value', value);
             resolve(value);
           },
-          function(error) {
+          error => {
             console.log('error getting value' + error);
             reject(error);
           }
@@ -45,6 +44,9 @@ export class RemoteConfigProvider {
       });
 
       return remoteVal || this.defaults[key];
+    } else {
+      // PWA Implementation
+      return this.defaults[key]
     }
   }
 }

@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { AuthProvider } from '../../providers/auth/auth';
 import { DatabaseProvider } from '../../providers/database/database';
 
 

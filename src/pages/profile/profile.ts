@@ -27,7 +27,6 @@ export class ProfilePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
-    // this.remoteConfig.initialize()
     this.bannerText = this.remoteConfig.getValue('profile_banner')
   }
 

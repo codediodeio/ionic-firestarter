@@ -8,7 +8,7 @@ import {
 import * as firebase from "firebase/app";
 
 import { Observable } from "rxjs/Observable";
-import { switchMap, first, map } from "rxjs/operators";
+import { switchMap, first } from "rxjs/operators";
 
 import { Facebook } from "@ionic-native/facebook";
 
