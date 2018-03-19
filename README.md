@@ -51,7 +51,7 @@ If only targeting the web, you can skip steps 2 and 3 below.
 
 ### Cloud Functions Deployment
 
-Cloud functions handle backend tasks, such as push notifications and 
+Cloud functions handle backend tasks, such as push notifications and data aggregation.
 
 0. `cd functions`
 1. `npm install`
