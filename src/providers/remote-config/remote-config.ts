@@ -12,13 +12,23 @@ export class RemoteConfigProvider {
 
   initialize() {
     if (this.platform.is('cordova')) {
-      (window as any).FirebasePlugin.fetch(
+      const win = (window as any);
+
+      win.FirebasePlugin.fetch(
         600,
         () => {
           console.log('fetched remote config ');
+            win.FirebasePlugin.activateFetched(
+            () => {
+              console.log('activated remote config');
+            },
+            error => {
+              console.error('error initializing remote config', error);
+            }
+          );
         },
         error => {
-          console.error('error initializing remote config', error);
+          console.error('error fetching remote config', error);
         }
       );
     }

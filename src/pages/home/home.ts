@@ -23,10 +23,15 @@ export class HomePage {
       const ad: AdMobFreeInterstitialConfig = {
         id: 'ca-app-pub-6881663307118312/4719939210',
         isTesting: false,
-        autoShow: true
+        autoShow: false
       }
       this.adMob.interstitial.config(ad);
-      this.adMob.interstitial.prepare()
+
+      // 1 in 4 chance to see an ad
+      if (new Date().getTime() % 4 === 0) {
+        this.adMob.interstitial.prepare()
+      }
+
     }
 
   }

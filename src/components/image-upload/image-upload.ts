@@ -58,7 +58,7 @@ export class ImageUploadComponent {
 
   async captureAndUpload() {
     const options: CameraOptions = {
-      quality: 30,
+      quality: 50,
       targetWidth: 100,
       targetHeight: 100,
       destinationType: this.camera.DestinationType.DATA_URL,

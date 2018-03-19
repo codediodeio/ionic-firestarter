@@ -5,6 +5,8 @@ NOTES.md
 src/env.ts
 google-services.json
 GoogleService-Info.plist
+my-release-key.jks
+IonicFirestarter.apk
 
 *~
 *.sw[mnpcod]

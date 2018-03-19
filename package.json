@@ -32,10 +32,8 @@
     "and": "0.0.3",
     "angularfire2": "^5.0.0-rc.6",
     "chance": "^1.0.13",
-    "cordova-admob-sdk": "^0.15.1",
     "cordova-android": "^7.0.0",
     "cordova-ios": "^4.5.4",
-    "cordova-plugin-admob-free": "^0.14.0",
     "cordova-plugin-camera": "^4.0.2",
     "cordova-plugin-device": "^2.0.1",
     "cordova-plugin-facebook4": "^1.9.1",
@@ -49,6 +47,7 @@
     "firebase": "^4.11.0",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
+    "lycwed-cordova-plugin-admob-free": "git+https://github.com/RenaudROHLINGER/lycwed-cordova-plugin-admob-free.git",
     "rxjs": "5.5.2",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.18"
@@ -75,7 +74,7 @@
       },
       "cordova-plugin-statusbar": {},
       "cordova-plugin-firebase": {},
-      "cordova-plugin-admob-free": {}
+      "lycwed-cordova-plugin-admob-free": {}
     },
     "platforms": [
       "ios",
