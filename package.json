@@ -32,8 +32,8 @@
     "and": "0.0.3",
     "angularfire2": "^5.0.0-rc.6",
     "chance": "^1.0.13",
-    "cordova-android": "^7.0.0",
-    "cordova-ios": "^4.5.4",
+    "cordova-android": "7.0.0",
+    "cordova-ios": "4.5.4",
     "cordova-plugin-camera": "^4.0.2",
     "cordova-plugin-device": "^2.0.1",
     "cordova-plugin-facebook4": "^1.9.1",
@@ -68,17 +68,17 @@
         "APP_ID": "1647541315328951",
         "APP_NAME": "Ionic Firestarter"
       },
-      "cordova-plugin-camera": {
-        "CAMERA_USAGE_DESCRIPTION": " need the camera",
-        "PHOTOLIBRARY_USAGE_DESCRIPTION": " need the lib"
-      },
       "cordova-plugin-statusbar": {},
       "cordova-plugin-firebase": {},
-      "lycwed-cordova-plugin-admob-free": {}
+      "lycwed-cordova-plugin-admob-free": {},
+      "cordova-plugin-camera": {
+        "CAMERA_USAGE_DESCRIPTION": "App would like to access the camera",
+        "PHOTOLIBRARY_USAGE_DESCRIPTION": "App would like to access the photo library"
+      }
     },
     "platforms": [
-      "ios",
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
