@@ -9,6 +9,7 @@ my-release-key.jks
 *.apk
 *.p12
 
+
 *~
 *.sw[mnpcod]
 *.log
